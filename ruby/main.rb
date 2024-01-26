@@ -1,4 +1,4 @@
-def DrawLine(arr)
+def DrawLine(circles_and_xs)
   for num in 1..7
     if num % 2 == 0
       puts '| | | |'
@@ -14,11 +14,13 @@ def Input(vertical, horizontal、sign)
   puts '横の位置を入力してください'
   horizontal = gets.to_i
   if sign == 0
-
+    circles_and_xs[vertical][horizontal] = '○'
+  else
+    circles_and_xs[vertical][horizontal] = '×'
   end
 end
 
-arr = Array.new(3, Array.new(3, ' '))
-DrawLine(arr)
+circles_and_xs = Array.new(3, ['|',' ','|',' ','|',' ','|'])
+DrawLine(circles_and_xs)
 InputCircle(vertical, horizontal, 0)
 InputCircle(vertical, horizontal, 1)
