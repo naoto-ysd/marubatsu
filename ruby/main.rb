@@ -1,8 +1,9 @@
 def draw_board(circles_and_xs)
   circles_and_xs.each do |row|
-    puts row.join
     puts '-------'
+    puts row.join
   end
+  puts '-------'
 end
 
 def input_move(circles_and_xs, sign)
@@ -11,7 +12,7 @@ def input_move(circles_and_xs, sign)
   puts '横の位置を入力してください'
   horizontal = gets.to_i
   symbol = sign == 0 ? '○' : '×'
-  circles_and_xs[vertical][horizontal * 2] = symbol
+  circles_and_xs[vertical - 1][horizontal * 2 - 1] = symbol
 end
 
 circles_and_xs = Array.new(3) { ['|', ' ', '|', ' ', '|', ' ', '|'] }
