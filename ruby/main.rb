@@ -1,26 +1,22 @@
-def DrawLine(circles_and_xs)
-  for num in 1..7
-    if num % 2 == 0
-      puts '| | | |'
-    else
-      puts '-------'
-    end
+def draw_board(circles_and_xs)
+  circles_and_xs.each do |row|
+    puts row.join
+    puts '-------'
   end
 end
 
-def Input(vertical, horizontal、sign)
+def input_move(circles_and_xs, sign)
   puts '縦の位置を入力してください'
-  verticacl = gets.to_i
+  vertical = gets.to_i
   puts '横の位置を入力してください'
   horizontal = gets.to_i
-  if sign == 0
-    circles_and_xs[vertical][horizontal] = '○'
-  else
-    circles_and_xs[vertical][horizontal] = '×'
-  end
+  symbol = sign == 0 ? '○' : '×'
+  circles_and_xs[vertical][horizontal * 2] = symbol
 end
 
-circles_and_xs = Array.new(3, ['|',' ','|',' ','|',' ','|'])
-DrawLine(circles_and_xs)
-InputCircle(vertical, horizontal, 0)
-InputCircle(vertical, horizontal, 1)
+circles_and_xs = Array.new(3) { ['|', ' ', '|', ' ', '|', ' ', '|'] }
+draw_board(circles_and_xs)
+input_move(circles_and_xs, 0)
+draw_board(circles_and_xs)
+input_move(circles_and_xs, 1)
+draw_board(circles_and_xs)
