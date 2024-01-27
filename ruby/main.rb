@@ -23,7 +23,12 @@ def judge(circles_and_xs)
   ]
 
   winning_combinations.each do |combination|
-    row = combination.map { |position| circles_and_xs[position / 6][position % 6] }
+    # row = combination.map { |position| circles_and_xs[position / 6][position % 6] }
+    row = combination.map do |position|
+      p position / 6
+      p position % 6
+      circles_and_xs[position / 6][position % 6]
+    end
     p row
     return '○ wins!' if row.all? { |symbol| symbol == '○' }
     return '× wins!' if row.all? { |symbol| symbol == '×' }
