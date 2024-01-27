@@ -24,6 +24,7 @@ def judge(circles_and_xs)
 
   winning_combinations.each do |combination|
     row = combination.map { |position| circles_and_xs[position / 6][position % 6] }
+    p row
     return '○ wins!' if row.all? { |symbol| symbol == '○' }
     return '× wins!' if row.all? { |symbol| symbol == '×' }
   end
@@ -34,8 +35,10 @@ def judge(circles_and_xs)
 end
 
 circles_and_xs = Array.new(3) { ['|', ' ', '|', ' ', '|', ' ', '|'] }
+
 draw_board(circles_and_xs)
 input_move(circles_and_xs, 0)
 draw_board(circles_and_xs)
 input_move(circles_and_xs, 1)
 draw_board(circles_and_xs)
+judge(circles_and_xs)
